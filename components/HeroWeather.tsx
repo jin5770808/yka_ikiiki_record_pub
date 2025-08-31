@@ -14,10 +14,17 @@ export default function HeroWeather() {
   });
   
   const [timeOfDay, setTimeOfDay] = useState(0);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
   
   useEffect(() => {
     const hour = new Date().getHours();
     setTimeOfDay(hour);
+    
+    // Set window dimensions after component mounts
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
   }, []);
 
   const skyOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
@@ -35,13 +42,13 @@ export default function HeroWeather() {
         className="absolute inset-0 opacity-30"
         style={{ opacity: skyOpacity }}
       >
-        {[...Array(20)].map((_, i) => (
+        {windowSize.width > 0 && [...Array(20)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-white rounded-full"
             initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * windowSize.width, 
+              y: Math.random() * windowSize.height,
               opacity: 0.3
             }}
             animate={{ 
