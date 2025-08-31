@@ -6,19 +6,7 @@ import CalloutCTA from "@/components/CalloutCTA";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { 
-  Heart, 
-  Compass, 
-  Lightbulb, 
-  Handshake, 
-  Seedling, 
-  Sparkles,
-  Quote,
-  MessageCircle,
-  Eye,
-  Award,
-  Users
-} from "lucide-react";
+import { Heart, Compass, Lightbulb, Handshake, Scaling as Seedling, Sparkles, Quote, MessageCircle, Eye, Award, Users } from "lucide-react";
 
 const storyPoints = [
   {
